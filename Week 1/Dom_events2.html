@@ -1,0 +1,31 @@
+<!-- Create an HTML page with three buttons.
+
+Give each one a unique id like "btn1", "btn2", "btn3".
+
+Use JavaScript to add a click event listener to each button.
+
+When clicked, each button should alert its own label (like "Button 1 clicked!") -->
+
+<html>
+    <title>
+        My three button journey
+    </title>
+    <body>
+        <p><button id=  "btn1"> Button 1</button></p>
+        <p><button id = "btn2"> Button 2</button></p>
+        <p><button id = "btn3"> Button 3</button></p>
+        <script>
+            const buttons = ["btn1", "btn2", "btn3"]
+            buttons.forEach(function(id){
+                const button = document.getElementById(id);
+                console.log(button)
+                button.addEventListener("click", function() {
+                    alert ("you clicked" + id)
+                })
+            })
+
+        </script>   
+    </body>
+
+
+</html>

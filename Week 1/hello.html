@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Click Counter</title>
+  </head>
+
+  <body>
+    <h1>Click Counter</h1>
+    <p>You have clicked the button <span id="count">0</span> times.</p>
+    <button onclick="clickCounter()">Click Me</button>
+    <button reset="resetCounter()">Reset</button>
+    <script>
+      var counter = 0;
+      function clickCounter() {
+        counter++;
+        document.getElementById("count").innerText = counter;
+      }
+    </script>
+    <script>
+      function resetCounter() {
+        counter = 0;
+        document.getElementById("count").innerText = counter;
+      }
+    </script>
+  </body>
+</html>
