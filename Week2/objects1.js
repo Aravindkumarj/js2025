@@ -15,11 +15,16 @@ let car = {
     model: "Camry",
     year: "2020",
     isElectric: "false",
-    start()
+
+    start: function(){
+        console.log("Engine started");
+    },
+
+    stop() {
+        console.log("Engine stopped");
+    }
 }
 
-function start(){
-    console.log("Engine Started!")
-}
 
-console.log(car.start())
+car.start();
+car.stop();

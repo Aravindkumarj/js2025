@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Book List App</title>
+</head>
+
+<body>
+    <h1>My Book List</h1>
+    <ul id="bookList"></ul>
+    <div id="bookDetails"></div>
+    <button id="clearBtn">Clear</button>
+
+    <script>
+        let books = [
+            {
+                title: "Gone with the Wind",
+                author: "Margaret Mitchell",
+                yearPublished: 1936
+
+            },
+            {
+                title: "Then She Was Gone",
+                author: "Lisa Jewel",
+                yearPublished: 2017
+            },
+            {
+                title: "Where the Crawdads Sing",
+                author: "Delia Owens",
+                yearPublished: 2018
+            }
+        ]
+        let newerBooks = books.filter(book.yearPublished > 2015)
+        console.log(newerBooks)
+
+        const ul = document.getElementById("bookList");
+        const divContent = document.getElementById("bookDetails");
+        books.forEach(book => {
+            const li = document.createElement("li");
+            li.textContent = book.title
+            ul.appendChild(li)
+            li.addEventListener("click", function () {
+                divContent.textContent = "";
+
+                // Create new paragraph elements
+                const authorPara = document.createElement("p");
+                authorPara.textContent = "Author: " + book.author;
+
+                const yearPara = document.createElement("p");
+                yearPara.textContent = "Year Published: " + book.yearPublished;
+
+                // Add paragraphs to div
+                divContent.appendChild(authorPara);
+                divContent.appendChild(yearPara);
+            })
+        });
+
+        const clearButton = document.getElementById("clearBtn");
+        clearButton.addEventListener("click", function () {
+            divContent.textContent = ""
+        })
+    </script>
+</body>
+
+</html>
