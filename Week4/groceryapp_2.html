@@ -1,0 +1,94 @@
+<!-- /*
+Here's what your Grocery List App could include:
+✅ MVP (Minimum Viable Product)
+
+A text input + "Add" button
+
+A list that displays grocery items
+
+Each item has a "Remove" button
+
+Basic layout with HTML + styling
+
+💡 Stretch Features (Optional as you go)
+
+Mark item as “bought” with a checkbox
+
+Filter by bought / unbought
+
+Count total items and bought items
+
+Clear all / Clear bought
+
+🧱 Tech stack:
+
+HTML for layout
+
+CSS (or minimal inline style) for styling
+
+JavaScript for logic (arrays, DOM, events)
+
+*/ -->
+
+<html>
+<title> First Grocery App</title>
+<h1> Grocery List</h1>
+
+<body>
+    <input type="text" id="groceryName" placeholder="Enter Grocery item" />
+    <button id="addbtn">Add</button>
+    <ul id="listofgroceries" />
+    <script>
+        const addButton = document.getElementById("addbtn")
+        const whatToAdd = document.getElementById("groceryName")
+        const listinhtml = document.getElementById("listofgroceries")
+        let grocerylist = ['Apples', 'Oranges']
+        let count = 0
+
+        // lets write what will happen when the Add function is called.
+
+        function addItems(itemName) {
+            const li = document.createElement("li")
+            li.textContent = itemName + "   "
+            const removeBtn = document.createElement("button")
+            removeBtn.textContent = "Remove"
+            removeBtn.id = "removeBtn" + "-" + count
+            li.appendChild(removeBtn)
+            listinhtml.appendChild(li)
+            count++
+            console.log(removeBtn.id)
+        }
+        grocerylist.forEach(grocery => {
+            const li = document.createElement("li")
+            li.textContent = grocery + "   "
+            const removeBtn = document.createElement("button")
+            removeBtn.textContent = "Remove"
+            removeBtn.id = "removeBtn" + "-" + count
+            li.appendChild(removeBtn)
+            listinhtml.appendChild(li)
+            count++
+            console.log(removeBtn.id)
+        })
+        addButton.addEventListener("click", function () {
+            grocerylist.push(whatToAdd.value)
+            const li = document.createElement("li")
+            li.textContent = whatToAdd.value + "    "
+            const removeBtn = document.createElement("button")
+            removeBtn.textContent = "Remove"
+            removeBtn.id = "removeBtn" + "-" + count
+            li.appendChild(removeBtn)
+            listinhtml.appendChild(li)
+            count++
+        })
+        document.getElementById("listofgroceries").addEventListener("click", (e) => {
+            if (e.target.tagName === "BUTTON") {
+                console.log(`You clicked: ${e.target.id});
+                console.log()
+                e.target.parentElement.remove(); // remove the <li>
+            }
+        });
+
+    </script>
+</body>
+
+</html>

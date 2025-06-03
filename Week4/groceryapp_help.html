@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Grocery List App</title>
+</head>
+
+<body>
+    <h1>Grocery List</h1>
+
+    <input type="text" id="itemInput" placeholder="Enter item" />
+    <button onclick="addItem()">Add</button>
+
+    <ul id="groceryList"></ul>
+
+    <script>
+        let itemCount = 0;
+
+        function addItem() {
+            const input = document.getElementById("itemInput");
+            const itemName = input.value.trim();
+
+            if (itemName === "") return; // Ignore empty input
+
+            // Create <li> element
+            const li = document.createElement("li");
+            li.textContent = itemName + " ";
+
+            // Create Remove button
+            const removeBtn = document.createElement("button");
+            removeBtn.textContent = "Remove";
+            removeBtn.id = `remove-${itemCount}`;
+
+            // Add click listener to Remove button
+            removeBtn.addEventListener("click", () => {
+                console.log(`Clicked: ${removeBtn.id}`);
+                li.remove(); // Remove the list item
+            });
+
+            li.appendChild(removeBtn);             // Add button to <li>
+            document.getElementById("groceryList").appendChild(li); // Add <li> to <ul>
+
+            input.value = ""; // Clear input
+            itemCount++;
+        }
+    </script>
+</body>
+
+</html>

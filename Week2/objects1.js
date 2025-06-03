@@ -16,7 +16,7 @@ let car = {
     year: "2020",
     isElectric: "false",
 
-    start: function(){
+    start: function () {
         console.log("Engine started");
     },
 
@@ -24,7 +24,7 @@ let car = {
         console.log("Engine stopped");
     }
 }
-
+console.log(car.make)
 
 car.start();
 car.stop();
