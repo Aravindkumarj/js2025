@@ -44,7 +44,7 @@ Detect win/draw: Write logic to check for a winner or a draw.
 💡 This phase solidifies DOM, conditionals, arrays, loops, functions, and event handling.*/
 
 //initialize board
-const board = {
+/* const board = {
     A1: { value: '' },
     A2: { value: '' },
     A3: { value: '' },
@@ -65,12 +65,22 @@ let com4 = [board.A1.value, board.B1.value, board.C1.value]
 let com5 = [board.A2.value, board.B2.value, board.C2.value]
 let com6 = [board.A3.value, board.B3.value, board.C3.value]
 let com7 = [board.A1.value, board.B2.value, board.C3.value]
-let com8 = [board.C1.value, board.B2.value, board.A3.value]
+let com8 = [board.C1.value, board.B2.value, board.A3.value] */
 
+
+//define winning combinations
+let com1 = ['', '', '']
+let com2 = ['', '', '']
+let com3 = ['', '', '']
+let com4 = ['', '', '']
+let com5 = ['', '', '']
+let com6 = ['', '', '']
+let com7 = ['', '', '']
+let com8 = ['', '', '']
 bigcom = [com1, com2, com3, com4, com5, com6, com7, com8]
 const buttons = ["cell-0", "cell-1", "cell-2", "cell-3", "cell-4", "cell-5", "cell-6", "cell-7", "cell-8"]
 let gameSymbol = 'X'
-
+console.log(bigcom)
 
 buttons.forEach(button => {
     let buttonInQuestion = document.getElementById(button)
@@ -143,23 +153,41 @@ buttons.forEach(button => {
 
 let resetButton = document.getElementById("reset")
 resetButton.addEventListener("click", function () {
-    buttons.forEach(button => {
-        let buttonInQuestion = document.getElementById(button)
-        buttonInQuestion.innerText = ''
-        buttonInQuestion.disabled = false
-        gameSymbol = 'X'
+
+    // check if player information is filled
+    let player1Name = document.getElementById("username1").value
+    let player2Name = document.getElementById("username2").value
+    if ((player1Name === '') || (player2Name === '')) {
+        enable_disable_buttons(1);
     }
-    )
+    else
+        enable_disable_buttons(0);
+    document.getElementById("gameStatus").innerText = ''
     bigcom.forEach(combination => {
         for (let i = 0; i < 3; i++) {
             combination[i] = '';
         }
-    })
+    }
+    )
+}
+)
 
-})
+
+
+function enable_disable_buttons(a) {
+    buttons.forEach(button => {
+        let buttonInQuestion5 = document.getElementById(button)
+        buttonInQuestion5.innerText = ''
+        if (a === 1) {
+            buttonInQuestion5.disabled = true
+        }
+        else
+            buttonInQuestion5.disabled = false
+    })
+}
 
 function did_I_Win() {
-
+    console.log(bigcom)
     if (bigcom.some(com => com.every(value => value === 'X') || bigcom.some(com => com.every(value => value === 'O')))) {
         alert(" Won")
         buttons.forEach(button => {
@@ -175,15 +203,14 @@ function did_I_Win() {
             bigcom.some(com => com.every(value => value === 'X')) ||
             bigcom.some(com => com.every(value => value === 'O'))
         ) {
-            alert("Won");
+            document.getElementById("gameStatus").innerText = `${gameSymbol} Won!`
             buttons.forEach(button => {
                 let buttonInQuestion3 = document.getElementById(button);
                 buttonInQuestion3.disabled = true;
                 gameSymbol = '';
             });
             return;
-        }
-     */
+        } */
 
     if ((com1.every(value => value != (''))) && (com2.every(value => value != (''))) && (com3.every(value => value != (''))) && (com4.every(value => value != (''))) && (com5.every(value => value != (''))) && (com6.every(value => value != (''))) && (com7.every(value => value != (''))) && (com8.every(value => value != ('')))) {
         alert("Its a draw")

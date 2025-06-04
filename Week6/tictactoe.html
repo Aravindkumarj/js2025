@@ -33,19 +33,30 @@
 
     <h1>Tic Tac Toe</h1>
     <div id="board">
-        <button class="cell" id="cell-0"></button>
-        <button class="cell" id="cell-1"></button>
-        <button class="cell" id="cell-2"></button>
-        <button class="cell" id="cell-3"></button>
-        <button class="cell" id="cell-4"></button>
-        <button class="cell" id="cell-5"></button>
-        <button class="cell" id="cell-6"></button>
-        <button class="cell" id="cell-7"></button>
-        <button class="cell" id="cell-8"></button>
+        <button class="cell" id="cell-0" disabled></button>
+        <button class="cell" id="cell-1" disabled></button>
+        <button class="cell" id="cell-2" disabled></button>
+        <button class="cell" id="cell-3" disabled></button>
+        <button class="cell" id="cell-4" disabled></button>
+        <button class="cell" id="cell-5" disabled></button>
+        <button class="cell" id="cell-6" disabled></button>
+        <button class="cell" id="cell-7" disabled></button>
+        <button class="cell" id="cell-8" disabled></button>
     </div>
     <div id="controls">
-        <button class="cell" id="reset">Reset</button>
-        <title id="results">Winner</title>
+        <h2 id="gap"></h2>
+        <button id="reset">Reset / New Game</button>
+        <h2 id="gameStatus"></h2>
+    </div>
+    <div id="players">
+        <label for="Player Name">Player Name:</label>
+        <input type="text" id="username1" name="username">
+        <button id="symbolX1">X</button>
+        <button id="symbolO1">O</button>
+        <label for="Player Name">Player Name:</label>
+        <input type="text" id="username2" name="username">
+        <button id="symbolX2">X</button>
+        <button id="symbolO2">O</button>
     </div>
 
     <script src=" tictactoe.js">
